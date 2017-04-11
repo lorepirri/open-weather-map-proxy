@@ -6,7 +6,7 @@
 
 The intent of this proxy is, in fact, not to extend the OWM service nor to replace it, but just to facilitate the usage of their APIs for learners who dig into [these matters](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) as beginners.
 
-The proxy is made by a script which will be running on the _current logged-in Google user quota_ for _Google Services_, read more in the [Reading: give me more](Reading: give me more) section.
+The proxy is made by a script which will be running on the _current logged-in Google user quota_ for _Google Services_, read more in the [Reading: give me more](#Reading: give me more) section.
 
 
 ## Mockup me, please
