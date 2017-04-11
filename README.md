@@ -49,26 +49,28 @@ Have a look at the [Quotas for Google Services](https://developers.google.com/ap
 
 # Install
 
-_Soon to come_
+_...Soon to come..._
+
+Briefly:
+- It is a Google-Scripts, therefore the code must be pasted into a new Google-Script project (https://script.google.com)
+- One must provide the private key from Open Weather Map into the into the second line of code:
+```
+var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
+```
+- One must create a New Version (file -> manage version) and deploy it as Web App
 
 <!-- quick start google scripts
-
 copy&paste
-
 update the appid with the one provided by OWM
-
 publish,
 important: create/save version while publishing (or from the menu)
-
 set the user rights: me, and anyone, also anonymous
-
 copy the link provided in the box
-
 nb if one tries the link in the browser, it gets redirected to another working URL, which requires to be authenticate with google services (so, don't get fooled, the URL provided by the publishing dialog is the one that works also in an incognito tab of the browser) -->
 
 # Usage
 
-_Soon to come_
+_...Soon to come..._
 
 <!--
 ```javascript
@@ -82,3 +84,8 @@ function fancyAlert(arg) {
 ## Examples
 
 _Soon to come_
+
+Hint:
+```
+https://script.google.com/macros/s/AKfycbybFVtS_EurDJJwccfyyFiw7_h2ggh8Ubd3LbNzLrwyJj_mnuc/exec?id=2634010&nomockupme=1&nodebugme=1&units=metric
+```
