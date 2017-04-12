@@ -71,7 +71,98 @@ var appID = "12345678901234567890123456789012";
 
 # Usage
 
-_...soon to come..._
+**Current Weather Proxy**
+----
+  Returns JSON data about the current weather, coming from the Open Weather Map and wrapped in some debug information if the URL param `nodebugme` is `0`, `false`, or `undefined`.
+
+* **URL:** /
+
+* **Method:** `GET`
+
+*  **URL Params**
+
+   **Required:**
+   _none_
+
+   **Optional:**
+   * `nomockupme`: if its value is `0`, `false`, or `undefined`, the response will not contain real data coming from the OWM server (which is then not contacted), but it will be filled with constant, yet consistent values
+   * `nodebugme`: if its value is `0`, `false`, or `undefined`, the response will be wrapped into another object which contains debug information (e.g. request parameters)
+
+* **Data Params**: _none_
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:**
+    ```
+    {  
+       "owmwrapper":"lorepirri",
+       "nomockupme":false,
+       "parameter":{  
+          "nodebugme":"0",
+          "nomockupme":"0",
+          "id":"0"
+       },
+       "cod":200,
+       "openweathermap":{
+          ...data from OWM response,
+          "cod":200
+       }
+    }
+    ```
+* **Success Response (if `nodebugme` is true):**
+
+  * **Code:** 200 <br />
+    **Content:** `{ cod : 200, ...data from OWM response }`
+
+* **Error Response:**
+
+  * **Code:** 200 (due to Google Scripts limitation) <br />
+    **Content:**
+    ```
+    {  
+       "owmwrapper":"lorepirri",
+       "nomockupme":false,
+       "parameter":{  
+          "nodebugme":"0",
+          "nomockupme":"0",
+          "id":"0"
+       },
+       "cod":"400",
+       "openweathermap":{
+          "cod":"400",
+          message: "error message"
+       }
+    }
+    ```
+
+* **Error Response (if `nodebugme` is true)::**
+
+  * **Code:** 200 (due to Google Scripts limitation) <br />
+    **Content:** `{ cod : "400", message: "error message" }`
+
+
+* **Sample Call:**
+
+  ```javascript
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbzK_moMuvXmDreD9YnNb_K9GfXoTKCHLE85jx_jNd-5tVAl0so/exec?id=0&nomockupme=0&nodebugme=0",
+    datatype: 'json',
+    error: function(err){
+      console.log('error!');
+      console.log(err);
+    },//error
+    success: function(result){
+      if (result.cod === 200) {        
+        console.log('success!');
+      } else {
+        console.log('OWM querystring has an error!');        
+      }
+      console.log(result);
+    }//succes
+  });
+  ```
+
 
 ## Examples
 
