@@ -47,17 +47,36 @@ This also means that the script runs on the _current logged-in Google user quota
 
 Have a look at the [Quotas for Google Services](https://developers.google.com/apps-script/guides/services/quotas#current_quotas) for `URL Fetch calls`, and `URL Fetch data received` (which are the only features used by this proxy).
 
-# Install
+# Make it work
 
-_...Soon to come..._
-
-Briefly:
-- It is a Google-Scripts, therefore the code must be pasted into a new Google-Script project (https://script.google.com)
-- One must provide the private key from Open Weather Map into the into the second line of code:
+1. Copy the _source code_ from [Code.gs](Code.gs) (click on `Raw` and then <kbd>Ctrl</kbd>+<kbd>a</kbd>)
+2. Go to [Google-Scripts](https://script.google.com) and create a new script (subscribe to the service if it's your first time)
+3. Paste the proxy _source code_ into the default file named `Code.gs` (replace the default code you see)
+4. On the second line of code, update the `appID` value with your [private key from Open Weather Map](http://openweathermap.org/appid#get):
 ```
+...
 var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
+...
 ```
-- One must create a New Version (file -> manage version) and deploy it as Web App
+such as it will look something like:
+```
+...
+var appID = "12345678901234567890123456789012";
+...
+```
+
+5. **Deploy as Web App**
+  1. From the main menu, select `Publish` and then `Deploy as web app...`
+  2. Enter a new project name if asked
+  3. Insert a comment for the new `Project version`
+  4. For `Execute the app as:` select `Me (<youremail>)`
+  5. For `Who has access to the app:` select `Anyone, even anonymous`,
+  6. Click on `Deploy`
+  7. Agree on the authorization request clicking on `Review Permissions` and `Allow` (well, if you trust my code)
+  6. You should see the message _"This project is now deployed as a web app"_
+  7. Copy the app URL, from the `Current Web app URL:` which must end with `/exec` (be sure to copy the whole of it, till the end)
+
+### Remarks and notes
 
 <!-- quick start google scripts
 copy&paste
