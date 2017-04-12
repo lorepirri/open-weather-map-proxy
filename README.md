@@ -71,22 +71,9 @@ var appID = "12345678901234567890123456789012";
 
 # Usage
 
-_...Soon to come..._
-
-<!--
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-``` -->
+_...soon to come..._
 
 ## Examples
 
-_...Soon to come..._
-
-Hint:
-```
-https://script.google.com/macros/s/AKfycbybFVtS_EurDJJwccfyyFiw7_h2ggh8Ubd3LbNzLrwyJj_mnuc/exec?id=2634010&nomockupme=1&nodebugme=1&units=metric
-```
+<p data-height="281" data-theme-id="light" data-slug-hash="xdxwVo" data-default-tab="js" data-user="lorepirri" data-embed-version="2" data-pen-title="OpenWeatherMapProxy Usage" class="codepen"> See the Pen <a href="https://codepen.io/lorepirri/pen/xdxwVo/"> OpenWeatherMapProxy Usage </a> by Lorenzo ( <a href="http://codepen.io/lorepirri"> @lorepirri </a> ) on <a href="http://codepen.io"> CodePen </a> . </p>
+<script  src="https://production-assets.codepen.io/assets/embed/ei.js"> </script>
