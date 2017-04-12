@@ -75,5 +75,4 @@ _...soon to come..._
 
 ## Examples
 
-<p data-height="281" data-theme-id="light" data-slug-hash="xdxwVo" data-default-tab="js" data-user="lorepirri" data-embed-version="2" data-pen-title="OpenWeatherMapProxy Usage" class="codepen"> See the Pen <a href="https://codepen.io/lorepirri/pen/xdxwVo/"> OpenWeatherMapProxy Usage </a> by Lorenzo ( <a href="http://codepen.io/lorepirri"> @lorepirri </a> ) on <a href="http://codepen.io"> CodePen </a> . </p>
-<script  src="https://production-assets.codepen.io/assets/embed/ei.js"> </script>
+- CodePen: [OpenWeatherMapProxy Usage](http://codepen.io/lorepirri/pen/xdxwVo)
