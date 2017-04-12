@@ -77,6 +77,8 @@ var appID = "12345678901234567890123456789012";
   7. Copy the app URL, from the `Current Web app URL:` which must end with `/exec` (be sure to copy the whole of it, till the end)
 
 ### Remarks and notes
+- After the web app is deployed, it is always possible to get its URL from the main menu, selecting `Publish` and then `Deploy as web app...`: the URL is under `Current web app URL:`
+- Each time you make any change to the code, you must create a new version (from the main menu `File -> Manage Versions`, or while deploying, selecting `New`)
 
 <!-- quick start google scripts
 copy&paste
