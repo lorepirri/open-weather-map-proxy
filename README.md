@@ -49,6 +49,7 @@ Have a look at the [Quotas for Google Services](https://developers.google.com/ap
 
 # Make it work
 
+## Google Scripts setup
 1. Copy the _source code_ from [Code.gs](Code.gs) (click on `Raw` and then <kbd>Ctrl</kbd>+<kbd>a</kbd>)
 2. Go to [Google-Scripts](https://script.google.com) and create a new script (subscribe to the service if it's your first time)
 3. Paste the proxy _source code_ into the default file named `Code.gs` (replace the default code you see)
@@ -65,29 +66,21 @@ var appID = "12345678901234567890123456789012";
 ...
 ```
 
-5. **Deploy as Web App**
-  1. From the main menu, select `Publish` and then `Deploy as web app...`
-  2. Enter a new project name if asked
-  3. Insert a comment for the new `Project version`
-  4. For `Execute the app as:` select `Me (<youremail>)`
-  5. For `Who has access to the app:` select `Anyone, even anonymous`,
-  6. Click on `Deploy`
-  7. Agree on the authorization request clicking on `Review Permissions` and `Allow` (well, if you trust my code)
-  6. You should see the message _"This project is now deployed as a web app"_
-  7. Copy the app URL, from the `Current Web app URL:` which must end with `/exec` (be sure to copy the whole of it, till the end)
+## Deploy as Web App
+1. From the main menu, select `Publish` and then `Deploy as web app...`
+2. Enter a new project name if asked
+3. Insert a comment for the new `Project version`
+4. For `Execute the app as:` select `Me (<youremail>)`
+5. For `Who has access to the app:` select `Anyone, even anonymous`,
+6. Click on `Deploy`
+7. Agree on the authorization request clicking on `Review Permissions` and `Allow` (well, if you trust my code)
+6. You should see the message _"This project is now deployed as a web app"_
+7. Copy the app URL, from the `Current Web app URL:` which must end with `/exec` (be sure to copy the whole of it, till the end): this is the URL of your OWM proxy service! See [Usage](#usage) to know how to use it
 
 ### Remarks and notes
 - After the web app is deployed, it is always possible to get its URL from the main menu, selecting `Publish` and then `Deploy as web app...`: the URL is under `Current web app URL:`
 - Each time you make any change to the code, you must create a new version (from the main menu `File -> Manage Versions`, or while deploying, selecting `New`)
-
-<!-- quick start google scripts
-copy&paste
-update the appid with the one provided by OWM
-publish,
-important: create/save version while publishing (or from the menu)
-set the user rights: me, and anyone, also anonymous
-copy the link provided in the box
-nb if one tries the link in the browser, it gets redirected to another working URL, which requires to be authenticate with google services (so, don't get fooled, the URL provided by the publishing dialog is the one that works also in an incognito tab of the browser) -->
+- If one tries the app URL in the browser, it gets redirected to another working URL, which requires to be authenticate with google services and therefore it can't be used for an AJAX request (the jQuery thing): the URL provided by the publishing dialog is the one that works, also in an incognito tab of the browser
 
 # Usage
 
@@ -104,7 +97,7 @@ function fancyAlert(arg) {
 
 ## Examples
 
-_Soon to come_
+_...Soon to come..._
 
 Hint:
 ```
