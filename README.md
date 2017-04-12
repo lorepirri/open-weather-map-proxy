@@ -26,19 +26,6 @@ HTTP errors
 
 anyway check for the `code === 200` in the response, a CodePen example is explained in the Usage section. -->
 
-## Be like water
-In my opinion, considering only the educational aspect, one could still complete the _freeCodeCamp_ challenge using the [Sample Data API provided by OWM](http://openweathermap.org/current), which does not require any private key:
-```
-http://samples.openweathermap.org/data/2.5/weather?lat=30&lon=139&appid=b1b15e88fa797225412429c1c50c122a1
-```
-
-which returns as well always the same nice data, which is anyway (still in my opinion) enough to complete the challenge.
-
-From [openweathermap](http://openweathermap.org/current) _Examples Page_:
-> _Please remember that all Examples of API calls that listed on [this](http://openweathermap.org/current) page are just samples and do not have any connection to the real API service!_
-
-<!-- Here an example on CodePen. -->
-
 ## Reading: give me more
 
 *OpenWeatherMapProxy* consists of a single file script [Code.gs](Code.gs) to be run as a [Web App](https://developers.google.com/apps-script/guides/web) through the [Google Apps Script](https://developers.google.com/apps-script/overview), which is a scripting language based on JavaScript that lets you do (new and cool) things with _Google Apps_ like _Docs_, _Sheets_, and _Forms_, but in _this_ particular case, acts as a mere [Content Service](https://developers.google.com/apps-script/guides/content).
