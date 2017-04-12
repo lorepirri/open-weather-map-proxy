@@ -149,12 +149,13 @@ function doGet(request) {
     owmwrapper: 'lorepirri',
     nomockupme: resultData.nomockupme,
     parameter: parameter,
+    cod: resultData.openweathermap.cod,
     openweathermap: resultData.openweathermap
   };
   
   // everything JSON, mimetype is set to support JSONP for CROS
   return ContentService.createTextOutput( JSON.stringify(result) )
-    .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    .setMimeType(ContentService.MimeType.JSON); // JAVASCRIPT
 }
 
 function debugDoGet() {
