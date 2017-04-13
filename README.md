@@ -8,6 +8,9 @@ The intent of this proxy is, in fact, not to extend the OWM service nor to repla
 
 The proxy is made by a script which will be running on the _current logged-in Google user quota_ for _Google Services_, read more in the [Reading: give me more](#reading-give-me-more) section.
 
+If you liked this project, or it was just useful to you, please :star: it!
+
+Please, contact me if you have suggestions for improvement.
 
 ## Mockup me, please
 To avoid hammering the good OWM server with test, yet real, requests, while understanding how to set the ajax request, or worse while fixing that CSS, I added an extra query parameter `nomockupme` which is _on purpose_ defined such as that, if not specified, the proxy goes mockup and returns immediately a sample data, _without_ even contacting the OWM server.
