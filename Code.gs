@@ -1,16 +1,16 @@
 /*************************************************************************
-* 
+*
 * OpenWeatherMapProxy
 * __________________
-* 
+*
 *  [April 2017] MIT License
-* 
-*  OpenWeatherMapProxy is a simple proxy for the Open Weather Map: client 
-*  can use it with no need to expose its appid key, which should be kept 
-*  private. Only the proxy for the "Current Weather API" service is 
+*
+*  OpenWeatherMapProxy is a simple proxy for the Open Weather Map: client
+*  can use it with no need to expose its appid key, which should be kept
+*  private. Only the proxy for the "Current Weather API" service is
 *  implemented by now.
-*  
-*  I originally coded it to be able to finish a freeCodeCamp challenge 
+*
+*  I originally coded it to be able to finish a freeCodeCamp challenge
 *  (Show Local Weather) and refined it later.
 *
 *  It is a Google-Scripts, therefore the code must be pasted into a new
@@ -26,7 +26,7 @@
 *
 * This file is subject to the terms and conditions defined in
 * file 'LICENSE', which is part of this source code package.
-* 
+*
 */
 
 var owmURL = "http://api.openweathermap.org/data/2.5/weather"; // url of the current weather service of OWM
@@ -56,16 +56,16 @@ function getOpenWeatherMapURL(parameter) {
 function getOpenWeatherData(parameter) {
 
   // calculate the URL for the API call to the OWM
-  var owmRequestURL = getOpenWeatherMapURL(parameter);  
-  
+  var owmRequestURL = getOpenWeatherMapURL(parameter);
+
   var response = {};
   try{
     response = UrlFetchApp.fetch(owmRequestURL, { 'muteHttpExceptions' : true });
-    
-    //get the json and make a js object out of it 
+
+    //get the json and make a js object out of it
     // (this could be done better since at the end everything is stringified anyway)
     response = JSON.parse(response.getContentText());
-    
+
     // in case the appid is present in any of the properties, blank it
     for (var property in response) {
       if (response.hasOwnProperty(property)) {
@@ -75,51 +75,42 @@ function getOpenWeatherData(parameter) {
       }
     }
   } catch(e) {
-    
+
     // invalid URLs / API calls, still raise exceptions, that's why this catch
 
     // in case the appid is reported in any of the properties, blank it
     response = { code: 400, message: e.message.replace(appID, "") }; // only the user relevant info for the error
   }
-    
+
   // REMARKS:
   //
-  
-  // 1) The parameter muteHttpExceptions is neeeded in UrlFetchApp.fetch 
+
+  // 1) The parameter muteHttpExceptions is neeeded in UrlFetchApp.fetch
   //    because if there is an invalid query (say with an invalid city id),
   //    then an exception is raised with an HTTP error, reporting the full URL
   //    of the API call, including the user API key. Not good.
-  
+
   // 2) Unfortunately by the time of coding, due to Google Scripts limitation
-  //    it is not possible to return a proper HTTP error Code, therefore 
-  //    in case of errors with the OWM API call the HTTP error code would be 
+  //    it is not possible to return a proper HTTP error Code, therefore
+  //    in case of errors with the OWM API call the HTTP error code would be
   //    always 200, and the the json of the body would contain the error code.
   //    Fair enough.
   //    https://issuetracker.google.com/issues/36759757
-  
+
   // 3) In the response, there is always a property "code" in the OWM object
   //    with the error code also when everything goes good (code === 200).
-  // 
+  //
   // 4) to know if the OWM request went really through, one must check the "code" property
   //    inside the response object, because besides exceptions the HTTP error code would be
   //    always 200.
- 
-  return response;
-}
 
-function readBooleanParam(parameter, paramName) {
-  
-  var booleanParam = false;
-  if (parameter && parameter.hasOwnProperty(paramName)) {
-    booleanParam = (parameter[paramName] === "1") || (parameter[paramName] === "true") ;
-  }
-  return booleanParam;
+  return response;
 }
 
 function getWeatherData(parameter) {
 
-  var nomockupme = readBooleanParam(parameter, "nomockupme");
-  var nodebugme = readBooleanParam(parameter, "nodebugme");
+  var nomockupme = Boolean(parameter["nomockupme"]);
+  var nodebugme = Boolean(parameter["nodebugme"]);
 
   if (nomockupme === true) {
     // fetch data from OpenWeatherMap
@@ -152,7 +143,7 @@ function doGet(request) {
     cod: resultData.openweathermap.cod,
     openweathermap: resultData.openweathermap
   };
-  
+
   // everything JSON, mimetype is set to support JSONP for CROS
   return ContentService.createTextOutput( JSON.stringify(result) )
     .setMimeType(ContentService.MimeType.JSON); // JAVASCRIPT
@@ -161,9 +152,9 @@ function doGet(request) {
 function debugDoGet() {
 
   // select this function in the menu "Select Function" and hit "debug"
-  
+
   var request = {"parameter":{"nomockupme":"1","id":"2950159"},"contextPath":"","contentLength":-1,"queryString":"id=2950159&nomockupme=0","parameters":{"nomockupme":["0"],"id":["2950159"]}};
   var requestNoQueryString = {"parameter":{},"contextPath":"","contentLength":-1,"queryString":null,"parameters":{}};
-  
+
   doGet(request);
 }

@@ -41,17 +41,17 @@ Have a look at the [Quotas for Google Services](https://developers.google.com/ap
 2. Go to [Google-Scripts](https://script.google.com) and create a new script (subscribe to the service if it's your first time)
 3. Paste the proxy _source code_ into the default file named `Code.gs` (replace the default code you see)
 4. On the second line of code, update the `appID` value with your [private key from Open Weather Map](http://openweathermap.org/appid#get):
-```
-...
-var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
-...
-```
-such as it will look something like:
-```
-...
-var appID = "12345678901234567890123456789012";
-...
-```
+  ```
+  ...
+  var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
+  ...
+  ```
+  such as it will look something like:
+  ```
+  ...
+  var appID = "12345678901234567890123456789012";
+  ...
+  ```
 
 ## Deploy as Web App
 1. From the main menu, select `Publish` and then `Deploy as web app...`
