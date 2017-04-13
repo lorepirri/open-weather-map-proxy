@@ -20,11 +20,11 @@ From [openweathermap](http://openweathermap.org/appid#get) _How to get API key (
 ## Debug information
 Another extra query parameter is `nodebugme` which tells the proxy whether to wrap the OWM response into another object with some more information. When you are ready to use the real data, set it to `true` or `1` and you'll get the exact format of the OWM response, no additional information (even in the case of `nomockupme === 0`).
 
-<!-- ## A little drawback
+## HTTP errors: a little drawback
 
-HTTP errors
+I could not find a way to set the error code in the HTTP response using the [Content Service](https://developers.google.com/apps-script/reference/content/), therefore even when the OWM service result has an error code, the HTTP error code to the proxy client is always `200` (`OK`).
 
-anyway check for the `code === 200` in the response, a CodePen example is explained in the Usage section. -->
+One should always check for the `cod === 200` in the response object, as shown in the [Usage section](#usage) and the _CodePen_ mentioned in the [Examples](#examples).
 
 ## Reading: give me more
 
