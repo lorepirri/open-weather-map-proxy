@@ -112,10 +112,19 @@ function getOpenWeatherData_(parameter) {
   return response;
 }
 
+function readBooleanParam_(parameter, paramName) {
+
+  var booleanParam = false;
+  if (parameter && parameter.hasOwnProperty(paramName)) {
+    booleanParam = (parameter[paramName] === "1") || (parameter[paramName] === "true") ;
+  }
+  return booleanParam;
+}
+
 function getWeatherData_(parameter) {
 
-  var nomockupme = Boolean(parameter["nomockupme"]);
-  var nodebugme = Boolean(parameter["nodebugme"]);
+  var nomockupme = readBooleanParam_(parameter, "nomockupme");
+  var nodebugme = readBooleanParam_(parameter, "nodebugme");
 
   if (nomockupme === true) {
     // fetch data from OpenWeatherMap
