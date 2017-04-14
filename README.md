@@ -43,16 +43,24 @@ Have a look at the [Quotas for Google Services](https://developers.google.com/ap
 1. Copy the _source code_ from [Code.gs](Code.gs) (click on `Raw` and then <kbd>Ctrl</kbd>+<kbd>a</kbd>)
 2. Go to [Google-Scripts](https://script.google.com) and create a new script (subscribe to the service if it's your first time)
 3. Paste the proxy _source code_ into the default file named `Code.gs` (replace the default code you see)
-4. On the second line of code, update the `appID` value with your [private key from Open Weather Map](http://openweathermap.org/appid#get):
-  ```
+4. With in the first function `getAppID_()`, update the returned _string_ value with your [private key from Open Weather Map](http://openweathermap.org/appid#get):
+  ```javascript
   ...
-  var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
+  function getAppID_() {
+    // underscore at the end of the function name
+    // makes it private
+    return "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP"; // personal app id string (change this with the one you get from OWM)
+  }
   ...
   ```
   such as it will look something like:
-  ```
+  ```javascript
   ...
-  var appID = "12345678901234567890123456789012";
+  function getAppID_() {
+    // underscore at the end of the function name
+    // makes it private
+    return "12345678901234567890123456789012"; // personal app id string (change this with the one you get from OWM)
+  }
   ...
   ```
 
