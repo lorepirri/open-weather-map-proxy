@@ -17,9 +17,9 @@
 *  Google-Script project (https://script.google.com)
 *
 *  One must provide the private key from Open Weather Map into the
-*  into the second line of code:
+*  getAppID_(), as the returned value:
 *
-*  var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
+*  return "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP";
 *
 *  Please read the README.md for information on how to make it work.
 *
@@ -30,17 +30,22 @@
 */
 
 var owmURL = "http://api.openweathermap.org/data/2.5/weather"; // url of the current weather service of OWM
-var appID = "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP"; // personal app id string (change this with the one you get from OWM)
 
-function getMockupData() {
+function getAppID_() {
+  // underscore at the end of the function name
+  // makes it private
+  return "PUT_HERE_YOUR_PERSONAL_KEY_FROM_OPEN_WEATHER_MAP"; // personal app id string (change this with the one you get from OWM)
+}
+
+function getMockupData_() {
 
   // this object is a mockup, returned if the param nomockup === ( 0 || false || undefined )
   return {"coord":{"lon":13.41,"lat":52.52},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":287.64,"pressure":1021,"humidity":51,"temp_min":287.15,"temp_max":288.15},"visibility":10000,"wind":{"speed":1},"clouds":{"all":0},"dt":1491762000,"sys":{"type":1,"id":4892,"message":0.0029,"country":"DE","sunrise":1491711616,"sunset":1491760572},"id":2950159,"name":"Berlin","cod":200};
 }
 
-function getOpenWeatherMapURL(parameter) {
+function getOpenWeatherMapURL_(parameter) {
 
-  var queryString = "?appid=" + appID; // add the app id
+  var queryString = "?appid=" + getAppID_(); // add the app id
 
   // append all the parameters except for nodebugme and nomockupme
   for (var property in parameter) {
@@ -53,10 +58,10 @@ function getOpenWeatherMapURL(parameter) {
   return owmURL + queryString;
 }
 
-function getOpenWeatherData(parameter) {
+function getOpenWeatherData_(parameter) {
 
   // calculate the URL for the API call to the OWM
-  var owmRequestURL = getOpenWeatherMapURL(parameter);
+  var owmRequestURL = getOpenWeatherMapURL_(parameter);
 
   var response = {};
   try{
@@ -70,7 +75,7 @@ function getOpenWeatherData(parameter) {
     for (var property in response) {
       if (response.hasOwnProperty(property)) {
         if (typeof response[property] === "string") {
-          response[property] = response[property].replace(appID, ""); // hide it from messages
+          response[property] = response[property].replace(getAppID_(), ""); // hide it from messages
         }
       }
     }
@@ -79,7 +84,7 @@ function getOpenWeatherData(parameter) {
     // invalid URLs / API calls, still raise exceptions, that's why this catch
 
     // in case the appid is reported in any of the properties, blank it
-    response = { code: 400, message: e.message.replace(appID, "") }; // only the user relevant info for the error
+    response = { code: 400, message: e.message.replace(getAppID_(), "") }; // only the user relevant info for the error
   }
 
   // REMARKS:
@@ -107,17 +112,17 @@ function getOpenWeatherData(parameter) {
   return response;
 }
 
-function getWeatherData(parameter) {
+function getWeatherData_(parameter) {
 
   var nomockupme = Boolean(parameter["nomockupme"]);
   var nodebugme = Boolean(parameter["nodebugme"]);
 
   if (nomockupme === true) {
     // fetch data from OpenWeatherMap
-    openweathermap = getOpenWeatherData(parameter);
+    openweathermap = getOpenWeatherData_(parameter);
   } else {
     // get mockup data
-    openweathermap = getMockupData();
+    openweathermap = getMockupData_();
   }
 
   return {
@@ -133,7 +138,7 @@ function doGet(request) {
   var parameter = request.parameter;
 
   // retrieve weather data from OWM or from mockup data if nomockupme === false
-  var resultData = getWeatherData(parameter);
+  var resultData = getWeatherData_(parameter);
 
   // give back only an OWM json object or, some more information if nodebugme === false
   var result = (resultData.nodebugme)? resultData.openweathermap : {
