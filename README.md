@@ -1,8 +1,8 @@
-# OpenWeatherMapProxy
+# Open Weather Map Proxy
 
-*OpenWeatherMapProxy* is a simple proxy for the [Open Weather Map](http://www.openweathermap.org/) (OWM) - [Current Weather API](http://openweathermap.org/current) service. The main reason for a web client to use this proxy is that it allows avoiding the exposure of the `appid` [key](http://openweathermap.org/appid#get), which should in general always be kept private.
+*Open Weather Map Proxy* is a simple proxy for the [Open Weather Map](http://www.openweathermap.org/) (OWM) - [Current Weather API](http://openweathermap.org/current) service. The main reason for a web client to use this proxy is that it allows avoiding the exposure of the `appid` [key](http://openweathermap.org/appid#get), which should in general always be kept private.
 
-*OpenWeatherMapProxy* is wrapping only the [Current Weather API](http://openweathermap.org/current) service, and I originally coded it to be able to finish a [freeCodeCamp](https://www.freecodecamp.com) challenge [(Show Local Weather)](https://www.freecodecamp.com/challenges/show-the-local-weather) because I did not like the idea of exposing the private OWM API key on [my CodePen](https://codepen.io/lorepirri/).
+*Open Weather Map Proxy* is wrapping only the [Current Weather API](http://openweathermap.org/current) service, and I originally coded it to be able to finish a [freeCodeCamp](https://www.freecodecamp.com) challenge [(Show Local Weather)](https://www.freecodecamp.com/challenges/show-the-local-weather) because I did not like the idea of exposing the private OWM API key on [my CodePen](https://codepen.io/lorepirri/).
 
 The intent of this proxy is, in fact, not to extend the OWM service nor to replace it, but just to facilitate the usage of their APIs for learners who dig into [these matters](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) as beginners.
 
@@ -31,7 +31,7 @@ One should always check for the `cod === 200` in the response object, as shown i
 
 ## Reading: give me more
 
-*OpenWeatherMapProxy* consists of a single file script [Code.gs](Code.gs) to be run as a [Web App](https://developers.google.com/apps-script/guides/web) through the [Google Apps Script](https://developers.google.com/apps-script/overview), which is a scripting language based on JavaScript that lets you do (new and cool) things with _Google Apps_ like _Docs_, _Sheets_, and _Forms_, but in _this_ particular case, acts as a mere [Content Service](https://developers.google.com/apps-script/guides/content).
+*Open Weather Map Proxy* consists of a single file script [Code.gs](Code.gs) to be run as a [Web App](https://developers.google.com/apps-script/guides/web) through the [Google Apps Script](https://developers.google.com/apps-script/overview), which is a scripting language based on JavaScript that lets you do (new and cool) things with _Google Apps_ like _Docs_, _Sheets_, and _Forms_, but in _this_ particular case, acts as a mere [Content Service](https://developers.google.com/apps-script/guides/content).
 
 This also means that the script runs on the _current logged-in Google user quota_ for _Google Services_.
 
@@ -177,4 +177,4 @@ Have a look at the [Quotas for Google Services](https://developers.google.com/ap
 
 ## Examples
 
-- CodePen: [OpenWeatherMapProxy Usage](http://codepen.io/lorepirri/pen/xdxwVo)
+- CodePen: [Open Weather Map Proxy Usage](http://codepen.io/lorepirri/pen/xdxwVo)

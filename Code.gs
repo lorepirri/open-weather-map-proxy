@@ -1,11 +1,11 @@
 /*************************************************************************
 *
-* OpenWeatherMapProxy
+* Open Weather Map Proxy
 * __________________
 *
 *  [April 2017] MIT License
 *
-*  OpenWeatherMapProxy is a simple proxy for the Open Weather Map: client
+*  Open Weather Map Proxy is a simple proxy for the Open Weather Map: client
 *  can use it with no need to expose its appid key, which should be kept
 *  private. Only the proxy for the "Current Weather API" service is
 *  implemented by now.
